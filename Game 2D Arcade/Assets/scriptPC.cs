@@ -8,14 +8,21 @@ public class scriptPC : MonoBehaviour
     public float vel;
     private float altura;
     private float largura;
+    public GameObject Tiro;
+    private AudioSource som;
+    private float alturaNave;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         rbd = this.GetComponent<Rigidbody2D>(); //Referencia ao RigidBody2d no mesmo GameObject em que o script está
+        som = this.GetComponent<AudioSource>();
         vel = 10;
         altura = Camera.main.orthographicSize;
         largura = altura * Camera.main.aspect;
+        alturaNave = GetComponent<SpriteRenderer>().bounds.size.y;
     }
 
     // Update is called once per frame
@@ -33,7 +40,7 @@ public class scriptPC : MonoBehaviour
         float y = Input.GetAxis("Vertical"); //Verifica se usuario está apertando botões para vertical
 
         rbd.velocity = new Vector2(x, y) * vel;
-        
+
         if (this.transform.position.x < -largura)
         {
             this.transform.position = new Vector2(largura, this.transform.position.y);
@@ -43,11 +50,20 @@ public class scriptPC : MonoBehaviour
             this.transform.position = new Vector2(-largura, this.transform.position.y);
         }
 
-        if (this.transform.position.y > 0) {
+        if (this.transform.position.y > 0)
+        {
             this.transform.position = new Vector2(this.transform.position.x, 0);
         }
-        else if (this.transform.position.y < -altura) {
-            this.transform.position = new Vector2(this.transform.position.x, -altura);
+        else if (this.transform.position.y < -altura + alturaNave/2)
+        {
+            this.transform.position = new Vector2(this.transform.position.x, -altura + alturaNave/2);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            Vector2 pos = new Vector2(this.transform.position.x, this.transform.position.y + alturaNave / 2);
+            Instantiate(Tiro, pos, Quaternion.identity);
+            som.Play();
         }
     }
 }

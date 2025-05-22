@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\heito\\Documentos\\GitHub-Projects\\Desenvolvimento-jogos\\Game 2D Arcade\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2F64F370-C783-C769-D144-588C2E71B397}|Assembly-CSharp.csproj|c:\\users\\heito\\documentos\\github-projects\\desenvolvimento-jogos\\game 2d arcade\\assets\\scriptpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F64F370-C783-C769-D144-588C2E71B397}|Assembly-CSharp.csproj|solutionrelative:assets\\scriptpc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "scriptPC.cs",
+              "DocumentMoniker": "C:\\Users\\heito\\Documentos\\GitHub-Projects\\Desenvolvimento-jogos\\Game 2D Arcade\\Assets\\scriptPC.cs",
+              "RelativeDocumentMoniker": "Assets\\scriptPC.cs",
+              "ToolTip": "C:\\Users\\heito\\Documentos\\GitHub-Projects\\Desenvolvimento-jogos\\Game 2D Arcade\\Assets\\scriptPC.cs",
+              "RelativeToolTip": "Assets\\scriptPC.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-21T21:49:25.687Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
