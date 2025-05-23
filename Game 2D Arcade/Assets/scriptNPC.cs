@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scriptNPC : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class scriptNPC : MonoBehaviour
     public float vel = 5;
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("AAAA");
+        
+        scriptPlacar.addPlacar(5);
         Destroy(col.gameObject);
         Destroy(this.gameObject);
 
