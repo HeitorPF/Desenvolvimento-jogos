@@ -161,20 +161,25 @@ public class scriptPC : MonoBehaviour
         Debug.Log("Quase tiro");
         if (direita)
         {
-            tiroAtual = Instantiate(tiro, new Vector2(rbd.position.x + .8f, rbd.position.y), Quaternion.identity);
+            tiroAtual = Instantiate(tiro, new Vector2(rbd.position.x + .8f, rbd.position.y + .5f), Quaternion.identity);
             tiroAtual.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(vel, 0);
-            
+
         }
         else
         {
-            tiroAtual = Instantiate(tiro, new Vector2(rbd.position.x - .8f, rbd.position.y), quaternion.Euler(0, 180, 0));
+            tiroAtual = Instantiate(tiro, new Vector2(rbd.position.x - .8f, rbd.position.y + .5f), quaternion.Euler(0, 180, 0));
             tiroAtual.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(-vel, 0);
-            
+
         }
-        
+
         yield return new WaitForSeconds(.333f);
         atirandoAnimacao = false;
         ani.SetBool("atirando", atirandoAnimacao);
+    }
+
+    public void LevarDano(float dano)
+    {
+        Debug.Log("Levei "+ dano +" de dano");
     }
 }
 

@@ -7,21 +7,23 @@ public class inimigoBase : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     private Color corOriginal;
     protected Rigidbody2D rbd;
-    private Animator ani;
+    protected Animator ani;
     public float vida = 1;
     public float vel = 4;
     public Transform alvo;
     private bool jogadorAlcance = false;
     private bool direita = true;
     private bool andando = false;
-    public float distanciaAtk;
+    public float distanciaAtk = 0.5f;
+    protected bool atacando = false;
+    protected bool podeMover = true;
 
-    void OnTriggerEnter2D(Collider2D other)
+
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.name == "PC")
         {
             jogadorAlcance = true;
-            Debug.Log("Jogador entrou no campo de visão!");
         }
     }
 
@@ -30,7 +32,6 @@ public class inimigoBase : MonoBehaviour
         if (other.name == "PC")
         {
             jogadorAlcance = false;
-            Debug.Log("Jogador saiu do campo de visão.");
             andando = false;
             ani.SetBool("andando", andando);
 
@@ -49,7 +50,6 @@ public class inimigoBase : MonoBehaviour
         if (spriteRenderer != null)
         {
             StartCoroutine(PiscarDano());
-            Debug.Log("Startcroutine");
         }
         if (vida <= 0)
         {
@@ -82,12 +82,15 @@ public class inimigoBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (jogadorAlcance)
+        if (atacando)
+        {
+            return;
+        }
+        if (jogadorAlcance && podeMover)
         {
             float posicaoAlvoX = alvo.position.x;
             float posicaoAtualX = transform.position.x;
             float distancia = posicaoAlvoX - posicaoAtualX;
-            Debug.Log("Direção: " + distancia);
             perseguirAlvo(distancia);
         }
 
@@ -95,31 +98,35 @@ public class inimigoBase : MonoBehaviour
 
     protected virtual void perseguirAlvo(float distancia)
     {
-        if (distancia <= distanciaAtk)
+        if (distancia >= -distanciaAtk && distancia <= distanciaAtk)
         {
             Atacar();
         }
-        andando = true;
-        ani.SetBool("andando", andando);
-        if (distancia < 0)
+        if (podeMover)
         {
-            rbd.linearVelocity = new Vector2(-vel, 0);
+            andando = true;
+            ani.SetBool("andando", andando);
+            if (distancia < 0)
+            {
+                rbd.linearVelocity = new Vector2(-vel, 0);
+            }
+            else
+            {
+                rbd.linearVelocity = new Vector2(vel, 0);
+            }
+            if (distancia < 0 && direita || distancia > 0 && !direita)
+            {
+                transform.Rotate(new Vector2(0, 180));
+                direita = !direita;
+            }
         }
-        else
-        {
-            rbd.linearVelocity = new Vector2(vel, 0);
-        }
-        if (distancia < 0 && direita || distancia > 0 && !direita)
-        {
-            transform.Rotate(new Vector2(0, 180));
-            direita = !direita;
-        }
+
 
 
     }
     IEnumerator PiscarDano()
     {
-        spriteRenderer.color = Color.white; // ou Color.white para flash
+        spriteRenderer.color = Color.red; // ou Color.white para flash
         yield return new WaitForSeconds(0.1f); // tempo do flash
         spriteRenderer.color = corOriginal;
     }

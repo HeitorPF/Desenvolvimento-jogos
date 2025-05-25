@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class scriptAreaAttack : controladorDano
+public class rangeSEasy12 : controladorDano
 {
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        dano = 1;
-        atacante = "pc";
+        dano = 2;
+        atacante = "inimigo";
     }
 
     // Update is called once per frame

@@ -1,28 +1,37 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class scriptShadowEasy : inimigoBase
 {
+    private float cooldownAtkMover = 2f;
     void Start()
     {
         Iniciar();
         vida = 2;
         vel = 3;
+        distanciaAtk = 2;
     }
-    
-    // protected override virtual void  Atacar()
-    // {
-    //     Debug.Log(name + " atacou!");
-    // }
-    // void Start()
-    // {
-    //     spriteRenderer = GetComponent<SpriteRenderer>();
-    //     rbd = GetComponent<Rigidbody2D>();
-    //     vida = 2;
-    //     if (spriteRenderer != null)
-    //     {
-    //         corOriginal = spriteRenderer.color;
-    //     }
-    // }
 
+    protected override void Atacar()
+    {
+        
+        StartCoroutine(ataque1());
+        Debug.Log(name + " atacou!");
+        
+    }
+
+    IEnumerator ataque1()
+    {
+        atacando = true;
+        ani.SetBool("atacando", atacando);
+        rbd.linearVelocity = new Vector2(0, 0);
+        podeMover = false;
+        ani.SetBool("andando", false);
+        yield return new WaitForSeconds(.84f);
+        atacando = false;
+        ani.SetBool("atacando", atacando);
+        yield return new WaitForSeconds(cooldownAtkMover);
+        podeMover = true;
+    }
 }

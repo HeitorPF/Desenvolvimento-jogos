@@ -5,19 +5,30 @@ using UnityEngine;
 public class scriptTiro : MonoBehaviour
 {
     private Rigidbody2D rbd;
-    public float vel;
     private BoxCollider2D boxCollider2D;
     private Animator ani;
+    protected inimigoBase inimigo;
     private bool autoDestruindo = false;
+    private float dano = 2;
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        autoDestruir();
+        if (other.CompareTag("Inimigo"))
+        {
+            inimigo = other.GetComponent<inimigoBase>();
+            if (inimigo != null)
+            {
+                inimigo.LevarDano(dano);
+                autoDestruir();
+            }
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        dano = 2;
         rbd = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         StartCoroutine(temporizador());
