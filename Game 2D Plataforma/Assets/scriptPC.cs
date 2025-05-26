@@ -1,9 +1,12 @@
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using TMPro;
 
 public class scriptPC : MonoBehaviour
 {
+
+
     // tiro e tp
     public GameObject tiro;
     private GameObject tiroAtual;
@@ -34,10 +37,16 @@ public class scriptPC : MonoBehaviour
 
     private float dashCooldown;
 
+    private float vida;
+    private bool morrer = false;
+    public GameObject texto;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        vida = 30;
+        texto.GetComponent<TMP_Text>().text = "Vida: " + vida;
         dashingPower = 5f;
         dashingTime = .2f;
         dashCooldown = 1f;
@@ -52,67 +61,77 @@ public class scriptPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDashing || atirandoAnimacao)
+        if (!morrer)
         {
-            return;
-        }
-        float x = Input.GetAxis("Horizontal");
-        rbd.linearVelocity = new Vector2(x * vel, rbd.linearVelocity.y);
+            if (isDashing || atirandoAnimacao)
+            {
+                return;
+            }
+            float x = Input.GetAxis("Horizontal");
+            rbd.linearVelocity = new Vector2(x * vel, rbd.linearVelocity.y);
 
-        if (x == 0)
-        {
-            ani.SetBool("movendo", false);
-        }
-        else
-        {
-            ani.SetBool("movendo", true);
-        }
+            if (x == 0)
+            {
+                ani.SetBool("movendo", false);
+            }
+            else
+            {
+                ani.SetBool("movendo", true);
+            }
 
-        if (Input.GetKeyDown(KeyCode.Space) && chao)
-        {
-            rbd.AddForce(new Vector2(0, pulo));
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            StartCoroutine(Dash());
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse1) && !atirando && chao) // atirar
-        {
-            StartCoroutine(Atirar());
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !atirando && chao) // atacar
-        {
-            StartCoroutine(Atacar());
-        }
+            if (Input.GetKeyDown(KeyCode.Space) && chao)
+            {
+                rbd.AddForce(new Vector2(0, pulo));
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            {
+                StartCoroutine(Dash());
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse1) && !atirando && chao) // atirar
+            {
+                StartCoroutine(Atirar());
+            }
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !atirando && chao) // atacar
+            {
+                StartCoroutine(Atacar());
+            }
 
-        // Detecta direção
+            // Detecta direção
 
-        if (x < 0 && direita || x > 0 && !direita)
-        {
-            transform.Rotate(new Vector2(0, 180));
-            direita = !direita;
-        }
-
-
-
-        // Detecta chão
-        RaycastHit2D hit;
-        hit = Physics2D.Raycast(pe.transform.position, Vector2.down, 0.3f, mascara);
-
-        if (hit.collider == null)
-        {
-            chao = false;
-            ani.SetBool("chao", chao);
-            ani.SetBool("pulando", true);
-        }
-        else
-        {
-            chao = true;
-            ani.SetBool("chao", chao);
-            ani.SetBool("pulando", false);
-        }
+            if (x < 0 && direita || x > 0 && !direita)
+            {
+                transform.Rotate(new Vector2(0, 180));
+                direita = !direita;
+            }
 
 
+
+            // Detecta chão
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(pe.transform.position, Vector2.down, 0.3f, mascara);
+
+            if (hit.collider == null)
+            {
+                chao = false;
+                ani.SetBool("chao", chao);
+                ani.SetBool("pulando", true);
+            }
+            else
+            {
+                chao = true;
+                ani.SetBool("chao", chao);
+                ani.SetBool("pulando", false);
+            }
+        }
+        
+
+    }
+
+    public void resetar()
+    {
+        vida = 30;
+        transform.position = new Vector2(-10, 0);
+        texto.GetComponent<TMP_Text>().text = "Vida: " + vida;
     }
 
     private IEnumerator Atacar()
@@ -158,7 +177,6 @@ public class scriptPC : MonoBehaviour
         rbd.linearVelocity = new Vector2(0, 0);
         float vel = 15;
         yield return new WaitForSeconds(.666f);
-        Debug.Log("Quase tiro");
         if (direita)
         {
             tiroAtual = Instantiate(tiro, new Vector2(rbd.position.x + .8f, rbd.position.y + .5f), Quaternion.identity);
@@ -179,7 +197,14 @@ public class scriptPC : MonoBehaviour
 
     public void LevarDano(float dano)
     {
-        Debug.Log("Levei "+ dano +" de dano");
+        vida -= dano;
+        texto.GetComponent<TMP_Text>().text = "Vida: " + vida;
+        if (vida <= 0)
+        {
+            morrer = true;
+            ani.SetBool("morrer", true);
+        }
+
     }
 }
 

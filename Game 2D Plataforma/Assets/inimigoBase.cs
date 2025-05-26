@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class inimigoBase : MonoBehaviour
     private Color corOriginal;
     protected Rigidbody2D rbd;
     protected Animator ani;
+    protected BoxCollider2D hitBox;
     public float vida = 1;
     public float vel = 4;
     public Transform alvo;
@@ -17,6 +19,9 @@ public class inimigoBase : MonoBehaviour
     public float distanciaAtk = 0.5f;
     protected bool atacando = false;
     protected bool podeMover = true;
+    private bool morto = false;
+    protected float deathTime;
+    protected bool jaCausouDano = false;
 
 
     void OnTriggerStay2D(Collider2D other)
@@ -40,7 +45,6 @@ public class inimigoBase : MonoBehaviour
 
     protected virtual void Atacar()
     {
-        Debug.Log(name + " atacou!");
     }
 
     public void LevarDano(float dano)
@@ -53,15 +57,14 @@ public class inimigoBase : MonoBehaviour
         }
         if (vida <= 0)
         {
-            Morrer();
+
+            GetComponent<Rigidbody2D>().simulated = false;
+            hitBox.enabled = false;
+            StartCoroutine(Morrer());
+            
         }
     }
-
-    protected void Morrer()
-    {
-        Debug.Log(name + " morreu!");
-        Destroy(gameObject);
-    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -123,6 +126,14 @@ public class inimigoBase : MonoBehaviour
 
 
 
+    }
+
+    IEnumerator Morrer()
+    {
+        morto = true;
+        ani.SetBool("morrer", true);
+        yield return new WaitForSeconds(deathTime);
+        Destroy(gameObject);
     }
     IEnumerator PiscarDano()
     {

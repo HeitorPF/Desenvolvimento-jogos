@@ -975,15 +975,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_33
+      name: NightBorne_52
       rect:
         serializedVersion: 2
         x: 964
         y: 1
         width: 68
         height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.51026016, y: 0.25354296}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -997,15 +997,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_34
+      name: NightBorne_53
       rect:
         serializedVersion: 2
         x: 1041
         y: 1
         width: 73
         height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49362892, y: 0.30351716}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1019,15 +1019,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_35
+      name: NightBorne_54
       rect:
         serializedVersion: 2
         x: 1121
         y: 2
         width: 73
         height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49362725, y: 0.313112}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1041,37 +1041,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_36
-      rect:
-        serializedVersion: 2
-        x: 1172
-        y: 51
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6aa8f9582f592a670800000000000000
-      internalID: 8548559911559072422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NightBorne_37
+      name: NightBorne_55
       rect:
         serializedVersion: 2
         x: 1202
         y: 6
         width: 68
         height: 51
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48631915, y: 0.27654883}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1085,37 +1063,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_38
-      rect:
-        serializedVersion: 2
-        x: 1250
-        y: 52
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a894443e7e3d5d980800000000000000
-      internalID: -8514666527570245238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NightBorne_39
+      name: NightBorne_56
       rect:
         serializedVersion: 2
         x: 1293
-        y: 8
+        y: 9
         width: 47
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49010453, y: 0.27237704}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1136,8 +1092,8 @@ TextureImporter:
         y: 15
         width: 30
         height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.523259, y: 0.05537723}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1158,8 +1114,8 @@ TextureImporter:
         y: 15
         width: 30
         height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5697706, y: 0.041696716}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1180,8 +1136,8 @@ TextureImporter:
         y: 15
         width: 31
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.56752014, y: 0.071195185}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1202,8 +1158,8 @@ TextureImporter:
         y: 15
         width: 35
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6461888, y: 0.05208305}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1224,8 +1180,8 @@ TextureImporter:
         y: 15
         width: 35
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.632898, y: 0.060696706}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1246,8 +1202,8 @@ TextureImporter:
         y: 15
         width: 35
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.6063189, y: 0.069311}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1265,11 +1221,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 496
-        y: 15
+        y: 16
         width: 35
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.619608, y: 0.086539306}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1290,8 +1246,8 @@ TextureImporter:
         y: 15
         width: 35
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.666122, y: 0.10376563}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1312,8 +1268,8 @@ TextureImporter:
         y: 15
         width: 35
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.666122, y: 0.10376697}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1334,8 +1290,8 @@ TextureImporter:
         y: 9
         width: 38
         height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48775923, y: 0.26742864}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1353,11 +1309,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 819
-        y: 9
+        y: 10
         width: 38
         height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4938788, y: 0.27354863}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1375,11 +1331,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 899
-        y: 9
+        y: 10
         width: 38
         height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48163965, y: 0.26130816}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1393,15 +1349,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_52
+      name: NightBorne_57
       rect:
         serializedVersion: 2
         x: 1374
         y: 12
         width: 42
         height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5276867, y: 0.241587}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1415,15 +1371,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_53
+      name: NightBorne_58
       rect:
         serializedVersion: 2
         x: 1461
         y: 16
         width: 31
         height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1952514}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1437,15 +1393,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_54
+      name: NightBorne_59
       rect:
         serializedVersion: 2
         x: 1542
-        y: 17
+        y: 18
         width: 28
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.51661026, y: 0.11238013}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1459,15 +1415,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_55
+      name: NightBorne_60
       rect:
         serializedVersion: 2
         x: 1627
-        y: 24
+        y: 26
         width: 19
         height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: -0.33984268}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1481,15 +1437,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_56
+      name: NightBorne_61
       rect:
         serializedVersion: 2
-        x: 1704
-        y: 23
-        width: 93
+        x: 1703
+        y: 24
+        width: 17
         height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.45895565, y: -0.32012197}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1503,23 +1459,23 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NightBorne_57
+      name: NightBorne_62
       rect:
         serializedVersion: 2
-        x: 1175
-        y: 1
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1791
+        y: 31
+        width: 6
+        height: 6
+      alignment: 9
+      pivot: {x: 0.5, y: -2.0970523}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7fa2855c6f7745ab0800000000000000
-      internalID: -5020255782854710537
+      spriteID: 6b8bf2326938439449ca8d8a57973e0d
+      internalID: 478104857
       vertices: []
       indices: 
       edges: []
@@ -1538,6 +1494,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      1: 7465451782741479867
       NightBorne_0: -8804577451312863447
       NightBorne_1: 4541750074466545783
       NightBorne_10: -8630077547763592464
@@ -1549,7 +1506,6 @@ TextureImporter:
       NightBorne_16: 7018995681840017482
       NightBorne_17: 8414011603434205889
       NightBorne_18: -3164419483077263248
-      NightBorne_19: 5083154300484032116
       NightBorne_2: -8239006915776606373
       NightBorne_20: -4829220664459573023
       NightBorne_21: -1184382605107113275
@@ -1565,13 +1521,8 @@ TextureImporter:
       NightBorne_30: -120187220933850463
       NightBorne_31: -604301505416848564
       NightBorne_32: -3105514515409464378
-      NightBorne_33: -5063285392418353067
-      NightBorne_34: -7257403696482743351
-      NightBorne_35: 7437584850889283984
       NightBorne_36: 8548559911559072422
-      NightBorne_37: -8965171658419641037
       NightBorne_38: -8514666527570245238
-      NightBorne_39: 5389232431511811324
       NightBorne_4: 5201573932019284902
       NightBorne_40: 5829958208077408561
       NightBorne_41: 810612845163130981
@@ -1586,13 +1537,18 @@ TextureImporter:
       NightBorne_5: 3079978775435183711
       NightBorne_50: 8456261001067786734
       NightBorne_51: 7122196807548437983
-      NightBorne_52: -543444408847256576
-      NightBorne_53: 7465451782741479867
-      NightBorne_54: -2601604636754659197
-      NightBorne_55: -3884138607530488051
-      NightBorne_56: -8785807031976187778
-      NightBorne_57: -5020255782854710537
+      NightBorne_52: -5063285392418353067
+      NightBorne_53: -7257403696482743351
+      NightBorne_54: 7437584850889283984
+      NightBorne_55: -8965171658419641037
+      NightBorne_56: 5389232431511811324
+      NightBorne_57: -543444408847256576
+      NightBorne_58: 7465451782741479867
+      NightBorne_59: -2601604636754659197
       NightBorne_6: -1148362564002726747
+      NightBorne_60: -3884138607530488051
+      NightBorne_61: -8785807031976187778
+      NightBorne_62: 5083154300484032116
       NightBorne_7: 5888622227354725610
       NightBorne_8: -1202396436292935338
       NightBorne_9: -6309155646296237868

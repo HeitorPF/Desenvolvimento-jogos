@@ -3,21 +3,22 @@ using UnityEngine;
 
 public class scriptFinalBoss : inimigoBase
 {
-    private float cooldownAtkMover = 2f;
+    public GameObject rangeAtk1;
+    private float cooldownAtkMover = .7f;
     void Start()
     {
+        rangeAtk1.SetActive(false);
         Iniciar();
         vida = 5;
         vel = 10;
-        distanciaAtk = 2;
+        distanciaAtk = 1;
+        hitBox = GetComponent<BoxCollider2D>();
+        deathTime = 1.83f;
     }
 
     protected override void Atacar()
     {
-        
         StartCoroutine(ataque1());
-        Debug.Log(name + " atacou!");
-        
     }
 
     IEnumerator ataque1()
@@ -27,9 +28,15 @@ public class scriptFinalBoss : inimigoBase
         rbd.linearVelocity = new Vector2(0, 0);
         podeMover = false;
         ani.SetBool("andando", false);
-        yield return new WaitForSeconds(.84f);
+
+        yield return new WaitForSeconds(.7f);//inicio do atk
+        rangeAtk1.SetActive(true);
+        yield return new WaitForSeconds(.13f);//duração atk
+        rangeAtk1.SetActive(false);
         atacando = false;
         ani.SetBool("atacando", atacando);
+
+        
         yield return new WaitForSeconds(cooldownAtkMover);
         podeMover = true;
     }
