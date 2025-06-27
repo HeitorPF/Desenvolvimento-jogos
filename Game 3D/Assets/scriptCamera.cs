@@ -17,10 +17,16 @@ public class scriptCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        countX = Mathf.Clamp(countX, -80, 80);
+
 
         countX += Input.GetAxisRaw("Mouse Y") * velRotX * Time.deltaTime;
+        countX = Mathf.Clamp(countX, -80, 80);
         Quaternion rotX = Quaternion.AngleAxis(countX, Vector3.left);
         transform.localRotation = rotIni * rotX;
+    }
+    
+    public float GetPitchAngle()
+    {
+        return countX;
     }
 }
