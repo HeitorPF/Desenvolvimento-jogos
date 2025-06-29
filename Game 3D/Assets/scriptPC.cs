@@ -1,8 +1,18 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class scriptPC : MonoBehaviour
 {
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI chackraText;
+    public TextMeshProUGUI vidaText;
+    private int score;
+    private int chackra;
+    private int vida;
+
     private Rigidbody rbd;
     public float vel;
     public float forcaPulo;
@@ -13,19 +23,29 @@ public class scriptPC : MonoBehaviour
     public GameObject cabeca;
     public LayerMask mascara;
     public float dist;
+    private AudioSource[] sons;
     private AudioSource somRasengan;
+    private AudioSource somItadakimasu;
+    private AudioSource somKuso;
     private Animator animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rbd = GetComponent<Rigidbody>();
-        somRasengan = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        sons = GetComponents<AudioSource>();
+        somRasengan = sons[0];
+        somItadakimasu = sons[1];
+        somKuso = sons[2];
         rotIni = transform.localRotation;
         velRotY = 100;
         dist = 100;
         forcaPulo = 450;
         vel = 3;
+        score = 0;
+        chackra = 0;
+        vida = 3;
     }
 
     // Update is called once per frame
@@ -69,14 +89,12 @@ public class scriptPC : MonoBehaviour
             }
             if (frente == 0 && lado > 0)
             {
-                vel = 1f;
                 animator.SetBool("isRunning", false);
                 animator.SetBool("isWalkingRight", true);
 
             }
             else if (frente == 0 && lado < 0)
             {
-                vel = 1f;
                 animator.SetBool("isRunning", false);
                 animator.SetBool("isWalkingLeft", true);
             }
@@ -85,17 +103,7 @@ public class scriptPC : MonoBehaviour
 
 
         if (Input.GetMouseButtonDown(0))
-        {
-            animator.SetBool("isAttacking", true);
-            RaycastHit hit;
-            somRasengan.Play();
-            if (Physics.Raycast(cabeca.transform.position, cabeca.transform.forward, out hit, dist, mascara))
-            {
-                Rigidbody rbd = hit.collider.GetComponent<Rigidbody>();
-                rbd.AddForce(cabeca.transform.forward * 600f);
-            }
-            animator.SetBool("isAttacking", false);
-        }
+            UsarRasengan();
 
         if (Input.GetKeyDown(KeyCode.Space) && estaNoChao)
         {
@@ -104,8 +112,51 @@ public class scriptPC : MonoBehaviour
         }
     }
 
-    public void SetRotacaoY(float y) {
+    public void SetRotacaoY(float y)
+    {
         countY = y;
+    }
+
+    public void UpdateScore(int score)
+    {
+        this.score += score;
+        scoreText.text = "score: " + this.score.ToString();
+    }
+
+    public void UpdateChackra(int chackra)
+    {
+        this.chackra += chackra;
+        if (chackra > 0)
+            somItadakimasu.Play();
+        chackraText.text = "chackra: " + this.chackra.ToString();
+    }
+
+    public void UpdateVida(int vida)
+    {
+        if (vida < 0)
+            somKuso.Play();
+        this.vida += vida;
+        vidaText.text = "Vida: " + this.vida.ToString();
+        if (this.vida <= 0)
+        {
+            //Game over
+        }
+    }
+
+    public void UsarRasengan()
+    {
+        if (chackra >= 60)
+        {
+            UpdateChackra(-60);
+            RaycastHit hit;
+            somRasengan.Play();
+            if (Physics.Raycast(cabeca.transform.position, cabeca.transform.forward, out hit, dist, mascara))
+            {
+                NavMeshAgent agente = hit.collider.GetComponent<NavMeshAgent>();
+                if (agente != null)
+                    agente.Warp(new Vector3(7, 1, 1)); // forma correta de teleportar um agente
+            }
+        }
     }
 }
 
