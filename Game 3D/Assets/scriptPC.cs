@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class scriptPC : MonoBehaviour
@@ -21,13 +22,14 @@ public class scriptPC : MonoBehaviour
     private float countY;
 
     public GameObject cabeca;
-    public LayerMask mascara;
+    public LayerMask layerInimigo;
     public float dist;
     private AudioSource[] sons;
     private AudioSource somRasengan;
     private AudioSource somItadakimasu;
     private AudioSource somKuso;
     private Animator animator;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -139,7 +141,10 @@ public class scriptPC : MonoBehaviour
         vidaText.text = "Vida: " + this.vida.ToString();
         if (this.vida <= 0)
         {
-            //Game over
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(2);
+            SceneManager.UnloadSceneAsync(1);
         }
     }
 
@@ -150,11 +155,14 @@ public class scriptPC : MonoBehaviour
             UpdateChackra(-60);
             RaycastHit hit;
             somRasengan.Play();
-            if (Physics.Raycast(cabeca.transform.position, cabeca.transform.forward, out hit, dist, mascara))
+            if (Physics.Raycast(cabeca.transform.position, cabeca.transform.forward, out hit, dist, layerInimigo))
             {
-                NavMeshAgent agente = hit.collider.GetComponent<NavMeshAgent>();
-                if (agente != null)
-                    agente.Warp(new Vector3(7, 1, 1)); // forma correta de teleportar um agente
+                Debug.Log("Acertou um baitola");
+                NavMeshAgent agente = hit.collider.GetComponentInParent<NavMeshAgent>();
+                if (agente)
+                {
+                    agente.Warp(new Vector3(7, 1, 1));
+                }
             }
         }
     }

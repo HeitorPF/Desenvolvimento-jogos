@@ -7,9 +7,9 @@ public class scriptKunai : MonoBehaviour
     public scriptPC pc;
     void OnTriggerEnter(Collider outro)
     {
-        pc.UpdateScore(10);
         if (outro.CompareTag("Player"))
         {
+            pc.UpdateScore(10);
             Destroy(gameObject);
         }
     }
